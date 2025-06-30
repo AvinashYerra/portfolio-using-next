@@ -1,0 +1,16 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  --font-family-sans: var(--font-roboto);
+}
+
+body {
+  background-color: #fafafa;
+  color: #222;
+  font-family: var(--font-family-sans), sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
