@@ -1,27 +1,54 @@
-type Props = {
-  title: string
-  description: string
-  link: string
-}
+'use client'; // 👈 This is required
 
-export default function ProjectCard({ title, description, link }: Props) {
+import { FaGithub } from 'react-icons/fa';
+
+type ProjectProps = {
+  name: string;
+  html_url: string;
+  description: string;
+};
+
+export default function ProjectCard({ name, html_url, description }: ProjectProps) {
   return (
-    <div className="card">
-      <h3>{title}</h3>
-      <p>{description}</p>
-      <a href={link} target="_blank">View Project</a>
+    <div className="project-card">
+      <a
+        href={html_url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="github-icon"
+      >
+        <FaGithub size={22} />
+      </a>
+      <h3>{name.replace(/_/g, ' ')}</h3>
+      <p>{description || 'No description provided.'}</p>
 
       <style jsx>{`
-        .card {
-          border: 1px solid #ccc;
-          padding: 1rem;
+        .project-card {
+          border: 1px solid #ddd;
+          padding: 0.75rem;
           margin-bottom: 1rem;
-          border-radius: 8px;
+          border-radius: 10px;
+          background-color: black;
+          color: white;
+          transition: box-shadow 0.3s ease;
         }
-        a {
-          color: blue;
+        .project-card:hover {
+          box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+        }
+        .github-icon {
+          color: white;
+          margin-bottom: 0.5rem;
+          display: inline-block;
+        }
+        h3 {
+          font-size: 1.2rem;
+          margin: 0.3rem 0;
+        }
+        p {
+          font-size: 0.9rem;
+          color: #ccc;
         }
       `}</style>
     </div>
-  )
+  );
 }

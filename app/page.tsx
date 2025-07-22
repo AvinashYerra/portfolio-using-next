@@ -6,6 +6,9 @@ import { SiPython, SiMysql, SiPostgresql, SiCplusplus, SiJavascript, SiApacheair
 import { FaSnowflake, FaFileExcel, FaGithub, FaLinkedin} from 'react-icons/fa'; 
 import { VscVscode } from 'react-icons/vsc';
 import { FiMail } from 'react-icons/fi';
+import ProjectCard from '@/components/ProjectCard';
+import '@/styles/globals.css';
+import Link from 'next/link';
 
 
 export default function Home() {
@@ -110,7 +113,12 @@ export default function Home() {
     <h3>Real Time Data Streaming</h3>
   </div>
 
-  {/* Read More Button */}
+  <Link
+    href="/projects"
+    className="inline-block bg-white text-black px-4 py-2 rounded hover:bg-gray-200"
+  >
+    Explore More
+  </Link>
   <div className="github-link">
     <a href="https://github.com/avinashyerra" target="_blank" rel="noopener noreferrer">
       Explore more on GitHub →
